@@ -55,6 +55,16 @@ public class EventTest {
   }
 
   @Test
+  public void isValidBeverage_determinesValidInput_true(){
+    Event testEvent = new Event();
+    testEvent.setBeverage("Open Bar");
+    assertEquals(true, testEvent.isValidBeverage());
+    testEvent.setBeverage("sooo much pinot");
+    assertEquals(false, testEvent.isValidBeverage());
+
+  }
+
+  @Test
   public void calculateBeveragePrice_calculatesCorrectPrice_double(){
     Event testEvent = new Event();
     testEvent.setBeverage("Open Bar");

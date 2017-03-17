@@ -119,4 +119,26 @@ public class EventTest {
     assertEquals(expectedCoupons, testEvent.getPotentialCoupons());
   }
 
+  @Test
+  public void isValidCoupon_determinesValidInput_true(){
+    Event testEvent = new Event();
+    testEvent.initializeCoupons();
+    assertEquals(false, testEvent.isValidCoupon("ANINVALIDCOUPON2017"));
+    assertEquals(true, testEvent.isValidCoupon("BESTIESWITHEVENTPLANNER2017"));
+  }
+
+  @Test
+  public void applyCoupon_properlyAppliesDiscount_double(){
+    Event testEvent = new Event();
+    testEvent.initializeCoupons();
+    testEvent.setNumGuests(70);
+    testEvent.setFood("buffet-Meat");
+    testEvent.setBeverage("Non-alcoholic");
+    testEvent.setEntertainment("Live Band");
+    assertEquals((double)3800, testEvent.calculateTotalEventPrice().applyCoupon("IGOOGLEDANOLDCOUPONCODE2016"), 0.0001);
+    assertEquals((double)2660, testEvent.calculateTotalEventPrice().applyCoupon("BRIDEZILLA2017"), 0.0001);
+
+
+  }
+
 }

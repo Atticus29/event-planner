@@ -11,6 +11,7 @@ public class Event{
   private String mBeverage;
   private String mEntertainment;
   private List<String> mPotentialCoupons = new ArrayList<String>();
+  private List<double> mPotentialCouponDiscounts = new ArrayList<double>();
 
   // Constructor
   // _________________________________________________
@@ -118,11 +119,26 @@ public class Event{
     return mPotentialCoupons;
   }
 
+  // Perry, is this the best way to do this, or should I declare the array this way in the attributes section?
   public void initializeCoupons(){
     mPotentialCoupons.add("WINTERWEDDING2017");
     mPotentialCoupons.add("BESTIESWITHEVENTPLANNER2017");
     mPotentialCoupons.add("BRIDEZILLA2017");
+    mPotentialCouponDiscounts.add(0.85);
+    mPotentialCouponDiscounts.add(0.5);
+    mPotentialCouponDiscounts.add(0.65);
   }
+
+  // public boolean isValidCoupon(){
+  //
+  // }
+
+  //
+  // public double applyCoupon(String coupon){
+  //   int couponArrayIndex = mPotentialCoupons.indexOf(coupon);
+  //   double updatedPrice =
+  //   return updatedPrice;
+  // }
 
 
 }

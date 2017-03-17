@@ -51,6 +51,24 @@ public class Event{
   public void setBeverage(String usrBeverage){
     mBeverage = usrBeverage;
   }
+  public boolean isValidBeverage(){
+    String[] validBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic"};
+     return Arrays.asList(validBeverage).contains(mBeverage);
+  }
+  public double calculateBeveragePrice(){
+      String[] validBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic"};
+      Integer[] beveragePrices = {40, 150, 100};
+      int beverageArrayIndex = Arrays.asList(validBeverage).indexOf(mBeverage);
+      if (beverageArrayIndex == 0){
+        double pricePerGuest = beveragePrices[beverageArrayIndex];
+        double totalBeveragePrice = pricePerGuest * mNumGuests;
+        return totalBeveragePrice;
+      } else {
+        double totalBeveragePrice = beveragePrices[beverageArrayIndex];
+        return totalBeveragePrice;
+      }
+
+  }
 
 
   public String getEntertainment(){

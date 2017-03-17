@@ -54,4 +54,14 @@ public class EventTest {
     assertEquals((double)120, testEvent.calculateFoodPrice(),0.0001);
   }
 
+  @Test
+  public void calculateBeveragePrice_calculatesCorrectPrice_double(){
+    Event testEvent = new Event();
+    testEvent.setBeverage("Open Bar");
+    testEvent.setNumGuests(10);
+    assertEquals((double)400, testEvent.calculateBeveragePrice(),0.0001);
+    testEvent.setBeverage("Pay Bar");
+    assertEquals((double)150, testEvent.calculateBeveragePrice(),0.0001);
+  }
+
 }

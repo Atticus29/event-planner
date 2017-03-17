@@ -116,6 +116,18 @@ public class EventTest {
   }
 
   @Test
+  public void getTotalPrice_instantiatesCorrectly_true(){
+    Event testEvent = new Event();
+    assertEquals(true, testEvent.getTotalPrice() instanceof Double);
+    // testEvent.setNumGuests(70);
+    // testEvent.setFood("buffet-Meat");
+    // testEvent.setBeverage("Non-alcoholic");
+    // testEvent.setEntertainment("Live Band");
+    // testEvent.calculateTotalEventPrice();
+    // assertEquals(,)
+  }
+
+  @Test
   public void getPotentialCoupons_instantiatesCorrectly_true(){
     Event testEvent = new Event();
     // System.out.println("TestEvent's coupons are a(n) " +testEvent.getPotentialCoupons().getClass());

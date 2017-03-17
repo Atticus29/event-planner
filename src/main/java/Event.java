@@ -123,6 +123,10 @@ public class Event{
     return totalPrice;
   }
 
+  public Double getTotalPrice (){
+    return mTotalPrice;
+  }
+
   // Couponing
   // _________________________________________________
   public List<String> getPotentialCoupons(){

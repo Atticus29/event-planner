@@ -26,6 +26,13 @@ public class App{
 			String usrEntertainment = myConsole.readLine();
 			currentEvent.setEntertainment(usrEntertainment);
 		}
+		System.out.println("If you have a coupon code, please enter it now");
+		String usrCouponCode = myConsole.readLine();
+		if(currentEvent.isValidCoupon(usrCouponCode)){
+			currentEvent.applyCoupon(usrCouponCode);
+		}
+
+		System.out.println("Your event would cost: " + currentEvent.getTotalPrice());
 
 	}
 }

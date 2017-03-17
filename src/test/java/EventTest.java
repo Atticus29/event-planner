@@ -1,5 +1,7 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class EventTest {
   @Test
@@ -96,6 +98,25 @@ public class EventTest {
     testEvent.setBeverage("Non-alcoholic");
     testEvent.setEntertainment("Live Band");
     assertEquals((double)3800, testEvent.calculateTotalEventPrice(), 0.0001);
+  }
+
+  @Test
+  public void getPotentialCoupons_instantiatesCorrectly_true(){
+    Event testEvent = new Event();
+    // System.out.println("TestEvent's coupons are a(n) " +testEvent.getPotentialCoupons().getClass());
+    assertEquals(true, testEvent.getPotentialCoupons() instanceof ArrayList);
+  }
+
+  @Test
+  public void initializeCoupons_addsCouponCodesCorrectly_true(){
+    Event testEvent = new Event();
+    List<String> expectedCoupons = new ArrayList<String>();
+    assertEquals(expectedCoupons, testEvent.getPotentialCoupons());
+    expectedCoupons.add("WINTERWEDDING2017");
+    expectedCoupons.add("BESTIESWITHEVENTPLANNER2017");
+    expectedCoupons.add("BRIDEZILLA2017");
+    testEvent.initializeCoupons();
+    assertEquals(expectedCoupons, testEvent.getPotentialCoupons());
   }
 
 }

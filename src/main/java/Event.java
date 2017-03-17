@@ -4,16 +4,33 @@ import java.util.Arrays;
 
 public class Event{
 
+  // Attributes
+  // _________________________________________________
   private String mFood;
   private Integer mNumGuests;
   private String mBeverage;
   private String mEntertainment;
+  private List<String> mPotentialCoupons = new ArrayList<String>();
 
+  // Constructor
+  // _________________________________________________
   public Event(){
 
 
   }
 
+  // Guests
+  // _________________________________________________
+  public Integer getNumGuests(){
+    // Integer returnVal = 3;
+    return mNumGuests;
+  }
+  public void setNumGuests(int usrNumGuests){
+    mNumGuests = usrNumGuests;
+  }
+
+  // Food
+  // _________________________________________________
   public String getFood(){
     // String returnVal = "test";
     return mFood;
@@ -35,15 +52,8 @@ public class Event{
   }
 
 
-  public Integer getNumGuests(){
-    // Integer returnVal = 3;
-    return mNumGuests;
-  }
-  public void setNumGuests(int usrNumGuests){
-    mNumGuests = usrNumGuests;
-  }
-
-
+  // Drinks
+  // _________________________________________________
   public String getBeverage(){
     // String returnVal = "test";
     return mBeverage;
@@ -70,7 +80,8 @@ public class Event{
 
   }
 
-
+  // Entertainment
+  // _________________________________________________
   public String getEntertainment(){
     // String returnVal = "test";
     return mEntertainment;
@@ -90,6 +101,8 @@ public class Event{
     return totalEntertainmentPrice;
   }
 
+  // Total Price
+  // _________________________________________________
   public double calculateTotalEventPrice(){
     double foodCost = calculateFoodPrice();
     double beverageCost = calculateBeveragePrice();
@@ -97,6 +110,18 @@ public class Event{
     double venueCost = mNumGuests * 25;
     double totalPrice =  foodCost + beverageCost + entertainmentCost + venueCost;
     return totalPrice;
+  }
+
+  // Couponing
+  // _________________________________________________
+  public List<String> getPotentialCoupons(){
+    return mPotentialCoupons;
+  }
+
+  public void initializeCoupons(){
+    mPotentialCoupons.add("WINTERWEDDING2017");
+    mPotentialCoupons.add("BESTIESWITHEVENTPLANNER2017");
+    mPotentialCoupons.add("BRIDEZILLA2017");
   }
 
 

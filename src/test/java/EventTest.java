@@ -43,7 +43,6 @@ public class EventTest {
     assertEquals(true, testEvent.isValidFood());
     testEvent.setFood("filet mignon");
     assertEquals(false, testEvent.isValidFood());
-
   }
 
   @Test
@@ -61,7 +60,6 @@ public class EventTest {
     assertEquals(true, testEvent.isValidBeverage());
     testEvent.setBeverage("sooo much pinot");
     assertEquals(false, testEvent.isValidBeverage());
-
   }
 
   @Test
@@ -72,6 +70,22 @@ public class EventTest {
     assertEquals((double)400, testEvent.calculateBeveragePrice(),0.0001);
     testEvent.setBeverage("Pay Bar");
     assertEquals((double)150, testEvent.calculateBeveragePrice(),0.0001);
+  }
+
+  @Test
+  public void isValidEntertainment_determinesValidInput_true(){
+    Event testEvent = new Event();
+    testEvent.setEntertainment("DJ");
+    assertEquals(true, testEvent.isValidEntertainment());
+    testEvent.setEntertainment("CLOWNS");
+    assertEquals(false, testEvent.isValidEntertainment());
+  }
+
+  @Test
+  public void calculateEntertainmentPrice_calculatesCorrectPrice_double(){
+    Event testEvent = new Event();
+    testEvent.setEntertainment("Live Band");
+    assertEquals((double)900, testEvent.calculateEntertainmentPrice(),0.0001);
   }
 
 }

@@ -23,15 +23,15 @@ public class Event{
   }
   public boolean isValidFood(){
     String[] validFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
-     return Arrays.asList(validFood).contains(mFood);
+    return Arrays.asList(validFood).contains(mFood);
   }
   public double calculateFoodPrice(){
-      String[] validFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
-      Integer[] foodPrices = {12, 15, 25, 18, 26};
-      int foodArrayIndex = Arrays.asList(validFood).indexOf(mFood);
-      double pricePerGuest = foodPrices[foodArrayIndex];
-      double totalFoodPrice = pricePerGuest * mNumGuests;
-      return totalFoodPrice;
+    String[] validFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
+    Integer[] foodPrices = {12, 15, 25, 18, 26};
+    int foodArrayIndex = Arrays.asList(validFood).indexOf(mFood);
+    double pricePerGuest = foodPrices[foodArrayIndex];
+    double totalFoodPrice = pricePerGuest * mNumGuests;
+    return totalFoodPrice;
   }
 
 
@@ -53,20 +53,20 @@ public class Event{
   }
   public boolean isValidBeverage(){
     String[] validBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic"};
-     return Arrays.asList(validBeverage).contains(mBeverage);
+    return Arrays.asList(validBeverage).contains(mBeverage);
   }
   public double calculateBeveragePrice(){
-      String[] validBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic"};
-      Integer[] beveragePrices = {40, 150, 100};
-      int beverageArrayIndex = Arrays.asList(validBeverage).indexOf(mBeverage);
-      if (beverageArrayIndex == 0){
-        double pricePerGuest = beveragePrices[beverageArrayIndex];
-        double totalBeveragePrice = pricePerGuest * mNumGuests;
-        return totalBeveragePrice;
-      } else {
-        double totalBeveragePrice = beveragePrices[beverageArrayIndex];
-        return totalBeveragePrice;
-      }
+    String[] validBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic"};
+    Integer[] beveragePrices = {40, 150, 100};
+    int beverageArrayIndex = Arrays.asList(validBeverage).indexOf(mBeverage);
+    if (beverageArrayIndex == 0){
+      double pricePerGuest = beveragePrices[beverageArrayIndex];
+      double totalBeveragePrice = pricePerGuest * mNumGuests;
+      return totalBeveragePrice;
+    } else {
+      double totalBeveragePrice = beveragePrices[beverageArrayIndex];
+      return totalBeveragePrice;
+    }
 
   }
 
@@ -78,6 +78,18 @@ public class Event{
   public void setEntertainment(String usrEntertainment){
     mEntertainment = usrEntertainment;
   }
+  public boolean isValidEntertainment(){
+    String[] validEntertainment = {"DJ", "Live Band", "Photo Booth"};
+    return Arrays.asList(validEntertainment).contains(mEntertainment);
+  }
+  public double calculateEntertainmentPrice(){
+    String[] validEntertainment = {"DJ", "Live Band", "Photo Booth"};
+    Integer[] entertainmentPrices = {400, 900, 700};
+    int entertainmentArrayIndex = Arrays.asList(validEntertainment).indexOf(mEntertainment);
+    double totalEntertainmentPrice = entertainmentPrices[entertainmentArrayIndex];
+    return totalEntertainmentPrice;
+  }
+
 
 
 }

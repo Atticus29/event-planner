@@ -90,6 +90,14 @@ public class Event{
     return totalEntertainmentPrice;
   }
 
+  public double calculateTotalEventPrice(){
+    double foodCost = calculateFoodPrice();
+    double beverageCost = calculateBeveragePrice();
+    double entertainmentCost = calculateEntertainmentPrice();
+    double venueCost = mNumGuests * 25;
+    double totalPrice =  foodCost + beverageCost + entertainmentCost + venueCost;
+    return totalPrice;
+  }
 
 
 }

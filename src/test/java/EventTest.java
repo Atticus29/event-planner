@@ -88,4 +88,14 @@ public class EventTest {
     assertEquals((double)900, testEvent.calculateEntertainmentPrice(),0.0001);
   }
 
+  @Test
+  public void calculateTotalEventPrice_calculatesCorrectPrice_double(){
+    Event testEvent = new Event();
+    testEvent.setNumGuests(70);
+    testEvent.setFood("buffet-Meat");
+    testEvent.setBeverage("Non-alcoholic");
+    testEvent.setEntertainment("Live Band");
+    assertEquals((double)3800, testEvent.calculateTotalEventPrice(), 0.0001);
+  }
+
 }

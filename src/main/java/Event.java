@@ -31,6 +31,14 @@ public class Event{
     mNumGuests = usrNumGuests;
   }
 
+  public boolean isValidNumber(){
+    if(mNumGuests instanceof Integer && mNumGuests > 0){
+      return true;
+    } else{
+      return false;
+    }
+  }
+
   // Food
   // _________________________________________________
   public String getFood(){

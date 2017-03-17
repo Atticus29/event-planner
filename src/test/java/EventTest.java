@@ -39,6 +39,21 @@ public class EventTest {
   }
 
   @Test
+  public void isValidNumber_determinesValidInput_true(){
+    Event testEvent = new Event();
+    // testEvent.setNumGuests();
+    // assertEquals(false, testEvent.isValidNumber());
+    testEvent.setNumGuests(-1);
+    assertEquals(false, testEvent.isValidNumber());
+    testEvent.setNumGuests(0);
+    assertEquals(false, testEvent.isValidNumber());
+    testEvent.setNumGuests(1);
+    assertEquals(true, testEvent.isValidNumber());
+    testEvent.setNumGuests(1004);
+    assertEquals(true, testEvent.isValidNumber());
+  }
+
+  @Test
   public void isValidFood_determinesValidInput_true(){
     Event testEvent = new Event();
     testEvent.setFood("buffet-Vegetarian");

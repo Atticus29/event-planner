@@ -65,7 +65,7 @@ There are many options available, but we recommend using a terminal program call
 
 ## Known Bugs
 
-There is currently no way to remove orders, and sometimes the only way to get to checkout again is to go through the order page again, thereby forcing you to buy a new pizza. Ran out of time to correct this.
+There are currently no known bugs.
 
 ## Support and contact details
 

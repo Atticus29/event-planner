@@ -11,7 +11,8 @@ public class Event{
   private String mBeverage;
   private String mEntertainment;
   private List<String> mPotentialCoupons = new ArrayList<String>();
-  private List<double> mPotentialCouponDiscounts = new ArrayList<double>();
+  private List<Double> mPotentialCouponDiscounts = new ArrayList<Double>();
+  private double mTotalPrice;
 
   // Constructor
   // _________________________________________________
@@ -110,6 +111,7 @@ public class Event{
     double entertainmentCost = calculateEntertainmentPrice();
     double venueCost = mNumGuests * 25;
     double totalPrice =  foodCost + beverageCost + entertainmentCost + venueCost;
+    mTotalPrice = totalPrice;
     return totalPrice;
   }
 
@@ -119,7 +121,7 @@ public class Event{
     return mPotentialCoupons;
   }
 
-  // Perry, is this the best way to do this, or should I declare the array this way in the attributes section?
+  // Perry, is this the best way to do this, or should I declare the arrays this way in the attributes section?
   public void initializeCoupons(){
     mPotentialCoupons.add("WINTERWEDDING2017");
     mPotentialCoupons.add("BESTIESWITHEVENTPLANNER2017");
@@ -129,16 +131,22 @@ public class Event{
     mPotentialCouponDiscounts.add(0.65);
   }
 
-  // public boolean isValidCoupon(){
-  //
-  // }
+  public boolean isValidCoupon(String coupon){
+    return mPotentialCoupons.contains(coupon);
+  }
 
-  //
-  // public double applyCoupon(String coupon){
-  //   int couponArrayIndex = mPotentialCoupons.indexOf(coupon);
-  //   double updatedPrice =
-  //   return updatedPrice;
-  // }
+
+  public double applyCoupon(String coupon){
+    int couponArrayIndex = mPotentialCoupons.indexOf(coupon);
+    System.out.println("couponArrayIndex is " + couponArrayIndex);
+    if(couponArrayIndex >=0){
+      double discount = mPotentialCouponDiscounts.get(couponArrayIndex);
+      double updatedPrice = mTotalPrice * discount;
+      return updatedPrice;
+    } else{
+      return mTotalPrice * 1;
+    }
+  }
 
 
 }

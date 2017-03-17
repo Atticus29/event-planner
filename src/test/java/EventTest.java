@@ -135,10 +135,9 @@ public class EventTest {
     testEvent.setFood("buffet-Meat");
     testEvent.setBeverage("Non-alcoholic");
     testEvent.setEntertainment("Live Band");
-    assertEquals((double)3800, testEvent.calculateTotalEventPrice().applyCoupon("IGOOGLEDANOLDCOUPONCODE2016"), 0.0001);
-    assertEquals((double)2660, testEvent.calculateTotalEventPrice().applyCoupon("BRIDEZILLA2017"), 0.0001);
-
-
+    testEvent.calculateTotalEventPrice();
+    assertEquals((double)3800, testEvent.applyCoupon("IGOOGLEDANOLDCOUPONCODE2016"), 0.0001);
+    assertEquals((double)2470, testEvent.applyCoupon("BRIDEZILLA2017"), 0.0001);
   }
 
 }

@@ -21,6 +21,20 @@ public class Event{
   public void setFood(String usrFood){
     mFood = usrFood;
   }
+  public boolean isValidFood(){
+    String[] validFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
+     return Arrays.asList(validFood).contains(mFood);
+  }
+  public double calculateFoodPrice(){
+      String[] validFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
+      Integer[] foodPrices = {12, 15, 25, 18, 26};
+      int foodArrayIndex = Arrays.asList(validFood).indexOf(mFood);
+      double pricePerGuest = foodPrices[foodArrayIndex];
+      double totalFoodPrice = pricePerGuest * mNumGuests;
+      return totalFoodPrice;
+  }
+
+
   public Integer getNumGuests(){
     // Integer returnVal = 3;
     return mNumGuests;
@@ -28,6 +42,8 @@ public class Event{
   public void setNumGuests(int usrNumGuests){
     mNumGuests = usrNumGuests;
   }
+
+
   public String getBeverage(){
     // String returnVal = "test";
     return mBeverage;
@@ -35,6 +51,8 @@ public class Event{
   public void setBeverage(String usrBeverage){
     mBeverage = usrBeverage;
   }
+
+
   public String getEntertainment(){
     // String returnVal = "test";
     return mEntertainment;

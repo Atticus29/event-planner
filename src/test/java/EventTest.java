@@ -36,4 +36,22 @@ public class EventTest {
     assertEquals(true, testEvent.getEntertainment() instanceof String);
   }
 
+  @Test
+  public void isValidFood_determinesValidInput_true(){
+    Event testEvent = new Event();
+    testEvent.setFood("buffet-Vegetarian");
+    assertEquals(true, testEvent.isValidFood());
+    testEvent.setFood("filet mignon");
+    assertEquals(false, testEvent.isValidFood());
+
+  }
+
+  @Test
+  public void calculateFoodPrice_calculatesCorrectPrice_double(){
+    Event testEvent = new Event();
+    testEvent.setFood("buffet-Vegetarian");
+    testEvent.setNumGuests(10);
+    assertEquals((double)120, testEvent.calculateFoodPrice(),0.0001);
+  }
+
 }

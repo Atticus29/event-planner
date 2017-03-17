@@ -119,12 +119,6 @@ public class EventTest {
   public void getTotalPrice_instantiatesCorrectly_true(){
     Event testEvent = new Event();
     assertEquals(true, testEvent.getTotalPrice() instanceof Double);
-    // testEvent.setNumGuests(70);
-    // testEvent.setFood("buffet-Meat");
-    // testEvent.setBeverage("Non-alcoholic");
-    // testEvent.setEntertainment("Live Band");
-    // testEvent.calculateTotalEventPrice();
-    // assertEquals(,)
   }
 
   @Test

@@ -32,7 +32,8 @@ public class App{
 			currentEvent.applyCoupon(usrCouponCode);
 		}
 
-		System.out.println("Your event would cost: " + currentEvent.getTotalPrice());
+		currentEvent.calculateTotalEventPrice();
+		System.out.printf("Your event would cost: $%.2f", currentEvent.getTotalPrice());
 
 	}
 }

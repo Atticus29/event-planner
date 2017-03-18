@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Event{
 
@@ -13,8 +14,8 @@ public class Event{
   private List<String> mPotentialCoupons = new ArrayList<String>();
   private List<Double> mPotentialCouponDiscounts = new ArrayList<Double>();
   private double mTotalPrice;
-  private String[] mValidFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
-  private Integer[] mFoodPrices = {12, 15, 25, 18, 26};
+  private String[] mValidFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish", "light snack"};
+  private Integer[] mFoodPrices = {12, 15, 25, 18, 26, 10};
   private String[] mValidBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic Bar"};
   private Integer[] mBeveragePrices = {40, 150, 100};
   private String[] mValidEntertainment = {"DJ", "Live Band", "Photo Booth"};
@@ -27,8 +28,30 @@ public class Event{
 
   }
 
-  public String displayEventDetails(){
-    String sentence = String.format("Let's see. That's %s guests eating %s, drinking from a(n) %s, and being entertained by a %s. \nThe total cost comest to: $%.2f", mNumGuests, mFood, mBeverage, mEntertainment, mTotalPrice);
+  public void generateRandomEvent(){
+    // Event newEvent = new Event();
+    Random randObj = new Random();
+    // Guest count arbitrarily capped at 500
+    int randomGuestCount = randObj.nextInt(499)+1;
+    // System.out.println("randomGuestCount is " + randomGuestCount);
+    mNumGuests = randomGuestCount;
+    // newEvent.setNumGuests(randomGuestCount);
+    int randomFoodIndex = randObj.nextInt(mValidFood.length);
+    mFood = mValidFood[randomFoodIndex];
+    // newEvent.setFood(mValidFood.get(randomFoodIndex));
+    int randomBeverageIndex = randObj.nextInt(mValidBeverage.length);
+    mBeverage = mValidBeverage[randomBeverageIndex];
+    // newEvent.setBeverage(mValidBeverage.get(randomBeverageIndex));
+    int randomEntertainmentIndex = randObj.nextInt(mValidEntertainment.length);
+    mEntertainment = mValidEntertainment[randomEntertainmentIndex];
+    mTotalPrice = calculateTotalEventPrice();
+    // newEvent.setEntertainment(mValidEntertainment.get(randomEntertainmentIndex));
+    // return newEvent;
+
+  }
+
+  public String getEventDetailsString(){
+    String sentence = String.format("Let's see. That's %s guests eating %s, drinking from a(n) %s, and being entertained by a %s. \nThe total cost comes to: $%.2f", mNumGuests, mFood, mBeverage, mEntertainment, mTotalPrice);
     return sentence;
   }
 
@@ -158,7 +181,7 @@ public class Event{
     int couponArrayIndex = mPotentialCoupons.indexOf(coupon);
     // System.out.println("couponArrayIndex is " + couponArrayIndex);
     if(couponArrayIndex >=0){
-      System.out.println("you got into the if statement");
+      // System.out.println("you got into the if statement");
       double discount = mPotentialCouponDiscounts.get(couponArrayIndex);
       // System.out.println("Discount is " + discount);
       // double originalPrice = mTotalPrice;

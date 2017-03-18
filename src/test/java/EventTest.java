@@ -162,7 +162,7 @@ public class EventTest {
   }
 
   @Test
-  public void displayEventDetails_displaysWhatItShould_true(){
+  public void getEventDetailsString_displaysWhatItShould_true(){
     Event testEvent = new Event();
     testEvent.initializeCoupons();
     testEvent.setNumGuests(70);
@@ -170,9 +170,19 @@ public class EventTest {
     testEvent.setBeverage("Non-alcoholic Bar");
     testEvent.setEntertainment("Live Band");
     testEvent.calculateTotalEventPrice();
-    String expectedString = String.format("Let's see. That's %s guests eating %s, drinking from a(n) %s, and being entertained by a %s. \nThe total cost comest to: $%s", 70, "buffet-Meat", "Non-alcoholic Bar", "Live Band", "3800.00");
+    String expectedString = String.format("Let's see. That's %s guests eating %s, drinking from a(n) %s, and being entertained by a %s. \nThe total cost comes to: $%s", 70, "buffet-Meat", "Non-alcoholic Bar", "Live Band", "3800.00");
     System.out.println(expectedString);
-    assertEquals(expectedString, testEvent.displayEventDetails());
+    assertEquals(expectedString, testEvent.getEventDetailsString());
   }
 
+  @Test
+  public void generateRandomEvent_hasValidProperties_true(){
+    Event testEvent = new Event();
+    testEvent.generateRandomEvent();
+    assertEquals(true, testEvent.getNumGuests() > 0);
+    assertEquals(true, testEvent.getFood().length() > 0);
+    assertEquals(true, testEvent.getBeverage().length() > 0);
+    assertEquals(true, testEvent.getEntertainment().length() > 0);
+    assertEquals(true, testEvent.getTotalPrice() > 0);
+  }
 }

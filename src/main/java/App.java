@@ -7,10 +7,11 @@ public class App{
 		currentEvent.initializeCoupons();
 		System.out.println("Welcome to Event Horizon, where we plan more than you fathom!");
 		boolean truthVal = true;
-		System.out.println("Please select from the following menu: View Random Event, Create Custom Event");
+		String promptStatement = "Please select from the following menu: View Random Event, Create Custom Event, Exit";
+		System.out.println(promptStatement);
 		String usrSelection = myConsole.readLine();
 		while(truthVal){
-			while(usrSelection.equals("Create Custom Event")){
+			if(usrSelection.equals("Create Custom Event")){
 				while(!currentEvent.isValidNumber()){
 					System.out.println("How many guests do you plan on having at your event?");
 					Integer usrGuests = Integer.parseInt(myConsole.readLine());
@@ -41,16 +42,23 @@ public class App{
 				// System.out.printf("Your event would cost: $%.2f \n", currentEvent.getTotalPrice());
 				System.out.println(currentEvent.getEventDetailsString());
 				currentEvent = new Event();
-				System.out.println("Please select from the following menu: View Random Event, Create Custom Event");
+				System.out.println(promptStatement);
 				usrSelection = myConsole.readLine();
 			}
-			while(usrSelection.equals("View Random Event")){
+			if(usrSelection.equals("View Random Event")){
 				Event randomEvent = new Event();
 				randomEvent.initializeCoupons();
 				randomEvent.generateRandomEvent();
 				System.out.println(randomEvent.getEventDetailsString());
-				System.out.println("Please select from the following menu: View Random Event, Create Custom Event");
+				System.out.println(promptStatement);
 				usrSelection = myConsole.readLine();
+			}
+			if(!usrSelection.equals("View Random Event") && !usrSelection.equals("Create Custom Event")){
+				System.out.println(promptStatement);
+				usrSelection = myConsole.readLine();
+			}
+			if(usrSelection.equals("Exit")){
+				truthVal = false;
 			}
 		}
 	}

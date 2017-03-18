@@ -152,8 +152,12 @@ public class Event{
     int couponArrayIndex = mPotentialCoupons.indexOf(coupon);
     System.out.println("couponArrayIndex is " + couponArrayIndex);
     if(couponArrayIndex >=0){
+      System.out.println("you got into the if statement");
       double discount = mPotentialCouponDiscounts.get(couponArrayIndex);
+      System.out.println("Discount is " + discount);
+      // double originalPrice = mTotalPrice;
       double updatedPrice = mTotalPrice * discount;
+      mTotalPrice *= discount;
       return updatedPrice;
     } else{
       return mTotalPrice * 1;

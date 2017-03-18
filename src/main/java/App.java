@@ -26,14 +26,18 @@ public class App{
 			String usrEntertainment = myConsole.readLine();
 			currentEvent.setEntertainment(usrEntertainment);
 		}
+
+		currentEvent.calculateTotalEventPrice();
+		System.out.println("Price before discount is " + currentEvent.getTotalPrice());
+
 		System.out.println("If you have a coupon code, please enter it now");
 		String usrCouponCode = myConsole.readLine();
 		if(currentEvent.isValidCoupon(usrCouponCode)){
 			currentEvent.applyCoupon(usrCouponCode);
 		}
 
-		currentEvent.calculateTotalEventPrice();
-		System.out.printf("Your event would cost: $%.2f", currentEvent.getTotalPrice());
+
+		System.out.printf("Your event would cost: $%.2f \n", currentEvent.getTotalPrice());
 
 	}
 }

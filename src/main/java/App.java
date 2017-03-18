@@ -39,7 +39,6 @@ public class App{
 					System.out.println("Congratulations! Your coupon is valid!");
 					currentEvent.applyCoupon(usrCouponCode);
 				}
-				// System.out.printf("Your event would cost: $%.2f \n", currentEvent.getTotalPrice());
 				System.out.println(currentEvent.getEventDetailsString());
 				currentEvent = new Event();
 				System.out.println(promptStatement);

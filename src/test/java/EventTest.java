@@ -41,8 +41,6 @@ public class EventTest {
   @Test
   public void isValidNumber_determinesValidInput_true(){
     Event testEvent = new Event();
-    // testEvent.setNumGuests();
-    // assertEquals(false, testEvent.isValidNumber());
     testEvent.setNumGuests(-1);
     assertEquals(false, testEvent.isValidNumber());
     testEvent.setNumGuests(0);
@@ -124,7 +122,6 @@ public class EventTest {
   @Test
   public void getPotentialCoupons_instantiatesCorrectly_true(){
     Event testEvent = new Event();
-    // System.out.println("TestEvent's coupons are a(n) " +testEvent.getPotentialCoupons().getClass());
     assertEquals(true, testEvent.getPotentialCoupons() instanceof ArrayList);
   }
 

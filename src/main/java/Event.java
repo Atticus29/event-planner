@@ -25,28 +25,20 @@ public class Event{
   // _________________________________________________
   public Event(){
 
-
   }
 
   public void generateRandomEvent(){
-    // Event newEvent = new Event();
     Random randObj = new Random();
     // Guest count arbitrarily capped at 500
     int randomGuestCount = randObj.nextInt(499)+1;
-    // System.out.println("randomGuestCount is " + randomGuestCount);
     mNumGuests = randomGuestCount;
-    // newEvent.setNumGuests(randomGuestCount);
     int randomFoodIndex = randObj.nextInt(mValidFood.length);
     mFood = mValidFood[randomFoodIndex];
-    // newEvent.setFood(mValidFood.get(randomFoodIndex));
     int randomBeverageIndex = randObj.nextInt(mValidBeverage.length);
     mBeverage = mValidBeverage[randomBeverageIndex];
-    // newEvent.setBeverage(mValidBeverage.get(randomBeverageIndex));
     int randomEntertainmentIndex = randObj.nextInt(mValidEntertainment.length);
     mEntertainment = mValidEntertainment[randomEntertainmentIndex];
     mTotalPrice = calculateTotalEventPrice();
-    // newEvent.setEntertainment(mValidEntertainment.get(randomEntertainmentIndex));
-    // return newEvent;
 
   }
 
@@ -58,7 +50,6 @@ public class Event{
   // Guests
   // _________________________________________________
   public Integer getNumGuests(){
-    // Integer returnVal = 3;
     return mNumGuests;
   }
   public void setNumGuests(int usrNumGuests){
@@ -76,7 +67,6 @@ public class Event{
   // Food
   // _________________________________________________
   public String getFood(){
-    // String returnVal = "test";
     return mFood;
   }
   public void setFood(String usrFood){
@@ -97,7 +87,6 @@ public class Event{
   // Drinks
   // _________________________________________________
   public String getBeverage(){
-    // String returnVal = "test";
     return mBeverage;
   }
   public void setBeverage(String usrBeverage){
@@ -124,7 +113,6 @@ public class Event{
   // Entertainment
   // _________________________________________________
   public String getEntertainment(){
-    // String returnVal = "test";
     return mEntertainment;
   }
   public void setEntertainment(String usrEntertainment){
@@ -176,15 +164,10 @@ public class Event{
     return mPotentialCoupons.contains(coupon);
   }
 
-
   public double applyCoupon(String coupon){
     int couponArrayIndex = mPotentialCoupons.indexOf(coupon);
-    // System.out.println("couponArrayIndex is " + couponArrayIndex);
     if(couponArrayIndex >=0){
-      // System.out.println("you got into the if statement");
       double discount = mPotentialCouponDiscounts.get(couponArrayIndex);
-      // System.out.println("Discount is " + discount);
-      // double originalPrice = mTotalPrice;
       double updatedPrice = mTotalPrice * discount;
       mTotalPrice *= discount;
       return updatedPrice;
@@ -192,6 +175,4 @@ public class Event{
       return mTotalPrice * 1;
     }
   }
-
-
 }

@@ -41,7 +41,11 @@ A java app that allows a user to input a few details about their event and then 
 
 |Behavior|Input|Output|
 |:---:|:---:|:---:|
-|A price is returned depending on what food is being served to each guest, with the number of guests getting various selections tracked|Buffet-style with meat for 30 guests + Buffet-style with veggies for 15 guest|$450 + $180 = $630|
+|All event details are returned|see event details|70 guests eating buffet-Meat, drinking from a Non-alcoholic bar, and being entertained by a Live Band|
+|Option to completely randomize all properties of an Event|Random event selected|A random number of guests + food option + beverage option + entertainment option is returned|
+|Selection of wedding, birthday, and reunion properties is recognized|15 guests + light snacks + DJ + Non-alcoholic|Birthday package!|
+|Recognized special package is assigned a special price|Brithday package|$500|
+<!-- |A price is returned depending on what food is being served to each guest, with the number of guests getting various selections tracked|Buffet-style with meat for 30 guests + Buffet-style with veggies for 15 guest|$450 + $180 = $630| -->
 
 
 ## Setup/Installation Requirements

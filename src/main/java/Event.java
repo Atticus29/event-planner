@@ -13,12 +13,23 @@ public class Event{
   private List<String> mPotentialCoupons = new ArrayList<String>();
   private List<Double> mPotentialCouponDiscounts = new ArrayList<Double>();
   private double mTotalPrice;
+  private String[] mValidFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
+  private Integer[] mFoodPrices = {12, 15, 25, 18, 26};
+  private String[] mValidBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic Bar"};
+  private Integer[] mBeveragePrices = {40, 150, 100};
+  private String[] mValidEntertainment = {"DJ", "Live Band", "Photo Booth"};
+  private Integer[] mEntertainmentPrices = {400, 900, 700};
 
-  // Constructor
+  // Constructor and other event methods
   // _________________________________________________
   public Event(){
 
 
+  }
+
+  public String displayEventDetails(){
+    String sentence = String.format("Let's see. That's %s guests eating %s, drinking from a(n) %s, and being entertained by a %s. \nThe total cost comest to: $%.2f", mNumGuests, mFood, mBeverage, mEntertainment, mTotalPrice);
+    return sentence;
   }
 
   // Guests
@@ -49,14 +60,12 @@ public class Event{
     mFood = usrFood;
   }
   public boolean isValidFood(){
-    String[] validFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
-    return Arrays.asList(validFood).contains(mFood);
+    return Arrays.asList(mValidFood).contains(mFood);
   }
   public double calculateFoodPrice(){
-    String[] validFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish"};
-    Integer[] foodPrices = {12, 15, 25, 18, 26};
-    int foodArrayIndex = Arrays.asList(validFood).indexOf(mFood);
-    double pricePerGuest = foodPrices[foodArrayIndex];
+
+    int foodArrayIndex = Arrays.asList(mValidFood).indexOf(mFood);
+    double pricePerGuest = mFoodPrices[foodArrayIndex];
     double totalFoodPrice = pricePerGuest * mNumGuests;
     return totalFoodPrice;
   }
@@ -72,19 +81,18 @@ public class Event{
     mBeverage = usrBeverage;
   }
   public boolean isValidBeverage(){
-    String[] validBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic"};
-    return Arrays.asList(validBeverage).contains(mBeverage);
+
+    return Arrays.asList(mValidBeverage).contains(mBeverage);
   }
   public double calculateBeveragePrice(){
-    String[] validBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic"};
-    Integer[] beveragePrices = {40, 150, 100};
-    int beverageArrayIndex = Arrays.asList(validBeverage).indexOf(mBeverage);
+
+    int beverageArrayIndex = Arrays.asList(mValidBeverage).indexOf(mBeverage);
     if (beverageArrayIndex == 0){
-      double pricePerGuest = beveragePrices[beverageArrayIndex];
+      double pricePerGuest = mBeveragePrices[beverageArrayIndex];
       double totalBeveragePrice = pricePerGuest * mNumGuests;
       return totalBeveragePrice;
     } else {
-      double totalBeveragePrice = beveragePrices[beverageArrayIndex];
+      double totalBeveragePrice = mBeveragePrices[beverageArrayIndex];
       return totalBeveragePrice;
     }
 
@@ -100,14 +108,12 @@ public class Event{
     mEntertainment = usrEntertainment;
   }
   public boolean isValidEntertainment(){
-    String[] validEntertainment = {"DJ", "Live Band", "Photo Booth"};
-    return Arrays.asList(validEntertainment).contains(mEntertainment);
+
+    return Arrays.asList(mValidEntertainment).contains(mEntertainment);
   }
   public double calculateEntertainmentPrice(){
-    String[] validEntertainment = {"DJ", "Live Band", "Photo Booth"};
-    Integer[] entertainmentPrices = {400, 900, 700};
-    int entertainmentArrayIndex = Arrays.asList(validEntertainment).indexOf(mEntertainment);
-    double totalEntertainmentPrice = entertainmentPrices[entertainmentArrayIndex];
+    int entertainmentArrayIndex = Arrays.asList(mValidEntertainment).indexOf(mEntertainment);
+    double totalEntertainmentPrice = mEntertainmentPrices[entertainmentArrayIndex];
     return totalEntertainmentPrice;
   }
 
@@ -150,11 +156,11 @@ public class Event{
 
   public double applyCoupon(String coupon){
     int couponArrayIndex = mPotentialCoupons.indexOf(coupon);
-    System.out.println("couponArrayIndex is " + couponArrayIndex);
+    // System.out.println("couponArrayIndex is " + couponArrayIndex);
     if(couponArrayIndex >=0){
       System.out.println("you got into the if statement");
       double discount = mPotentialCouponDiscounts.get(couponArrayIndex);
-      System.out.println("Discount is " + discount);
+      // System.out.println("Discount is " + discount);
       // double originalPrice = mTotalPrice;
       double updatedPrice = mTotalPrice * discount;
       mTotalPrice *= discount;

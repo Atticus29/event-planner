@@ -28,7 +28,7 @@ public class App{
 		}
 
 		currentEvent.calculateTotalEventPrice();
-		System.out.println("Price before discount is " + currentEvent.getTotalPrice());
+		// System.out.println("Price before discount is " + currentEvent.getTotalPrice());
 
 		System.out.println("If you have a coupon code, please enter it now");
 		String usrCouponCode = myConsole.readLine();

@@ -110,7 +110,7 @@ public class EventTest {
     Event testEvent = new Event();
     testEvent.setNumGuests(70);
     testEvent.setFood("buffet-Meat");
-    testEvent.setBeverage("Non-alcoholic");
+    testEvent.setBeverage("Non-alcoholic Bar");
     testEvent.setEntertainment("Live Band");
     assertEquals((double)3800, testEvent.calculateTotalEventPrice(), 0.0001);
   }
@@ -154,11 +154,25 @@ public class EventTest {
     testEvent.initializeCoupons();
     testEvent.setNumGuests(70);
     testEvent.setFood("buffet-Meat");
-    testEvent.setBeverage("Non-alcoholic");
+    testEvent.setBeverage("Non-alcoholic Bar");
     testEvent.setEntertainment("Live Band");
     testEvent.calculateTotalEventPrice();
     assertEquals((double)3800, testEvent.applyCoupon("IGOOGLEDANOLDCOUPONCODE2016"), 0.0001);
     assertEquals((double)2470, testEvent.applyCoupon("BRIDEZILLA2017"), 0.0001);
+  }
+
+  @Test
+  public void displayEventDetails_displaysWhatItShould_true(){
+    Event testEvent = new Event();
+    testEvent.initializeCoupons();
+    testEvent.setNumGuests(70);
+    testEvent.setFood("buffet-Meat");
+    testEvent.setBeverage("Non-alcoholic Bar");
+    testEvent.setEntertainment("Live Band");
+    testEvent.calculateTotalEventPrice();
+    String expectedString = String.format("Let's see. That's %s guests eating %s, drinking from a(n) %s, and being entertained by a %s. \nThe total cost comest to: $%s", 70, "buffet-Meat", "Non-alcoholic Bar", "Live Band", "3800.00");
+    System.out.println(expectedString);
+    assertEquals(expectedString, testEvent.displayEventDetails());
   }
 
 }

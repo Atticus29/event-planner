@@ -133,6 +133,8 @@ public class EventTest {
     expectedCoupons.add("WINTERWEDDING2017");
     expectedCoupons.add("BESTIESWITHEVENTPLANNER2017");
     expectedCoupons.add("BRIDEZILLA2017");
+    expectedCoupons.add("HAPPYBIRTHDAY2017");
+    expectedCoupons.add("LONGLOSTRELATIVES2017");
     testEvent.initializeCoupons();
     assertEquals(expectedCoupons, testEvent.getPotentialCoupons());
   }

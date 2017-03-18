@@ -7,10 +7,66 @@ public class App{
 		currentEvent.initializeCoupons();
 		System.out.println("Welcome to Event Horizon, where we plan more than you fathom!");
 		boolean truthVal = true;
-		String promptStatement = "Please select from the following menu: View Random Event, Create Custom Event, Exit";
+		String promptStatement = "Please select from the following menu: View Random Event, Create Custom Event, View Specialty Packages, Exit";
 		System.out.println(promptStatement);
 		String usrSelection = myConsole.readLine();
 		while(truthVal){
+			if(usrSelection.equals("View Specialty Packages")){
+				String specialtyPrompt = "Please select from the following menu: Wedding, Birthday, Reunion, Exit";
+				System.out.println(specialtyPrompt);
+				String usrSpecialtySelection = myConsole.readLine();
+				boolean specialtyTruthVal = true;
+				while(specialtyTruthVal){
+					if(usrSpecialtySelection.equals("Exit")){
+						specialtyTruthVal = false;
+					} else if(usrSpecialtySelection.equals("Wedding")){
+							// Perry, I think I could DRY this out with a constructor, but not clear on usage of constructors in encapsulated setting...
+							Event weddingEvent = new Event();
+							weddingEvent.initializeCoupons();
+							weddingEvent.setNumGuests(75);
+							weddingEvent.setFood("plated-Meat");
+							weddingEvent.setBeverage("Open Bar");
+							weddingEvent.setEntertainment("DJ");
+							weddingEvent.calculateTotalEventPrice();
+							weddingEvent.applyCoupon("BRIDEZILLA2017");
+							System.out.println("Special discount for the wedding package");
+							System.out.println(weddingEvent.getEventDetailsString());
+							System.out.println(specialtyPrompt);
+							usrSpecialtySelection = myConsole.readLine();
+					} else if(usrSpecialtySelection.equals("Birthday")){
+						Event birthdayEvent = new Event();
+						birthdayEvent.initializeCoupons();
+						birthdayEvent.setNumGuests(15);
+						birthdayEvent.setFood("light snack");
+						birthdayEvent.setBeverage("none");
+						birthdayEvent.setEntertainment("none");
+						birthdayEvent.calculateTotalEventPrice();
+						birthdayEvent.applyCoupon("HAPPYBIRTHDAY2017");
+						System.out.println("Special discount for the birthday package");
+						System.out.println(birthdayEvent.getEventDetailsString());
+						System.out.println(specialtyPrompt);
+						usrSpecialtySelection = myConsole.readLine();
+
+					} else if(usrSpecialtySelection.equals("Reunion")){
+						Event reunionEvent = new Event();
+						reunionEvent.initializeCoupons();
+						reunionEvent.setNumGuests(100);
+						reunionEvent.setFood("buffet-Meat");
+						reunionEvent.setBeverage("Open Bar");
+						reunionEvent.setEntertainment("Live Band");
+						reunionEvent.calculateTotalEventPrice();
+						reunionEvent.applyCoupon("LONGLOSTRELATIVES2017");
+						System.out.println("Special discount for the reunion package");
+						System.out.println(reunionEvent.getEventDetailsString());
+						System.out.println(specialtyPrompt);
+						usrSpecialtySelection = myConsole.readLine();
+
+					} else{
+						System.out.println(specialtyPrompt);
+						usrSpecialtySelection = myConsole.readLine();
+					}
+				}
+			}
 			if(usrSelection.equals("Create Custom Event")){
 				while(!currentEvent.isValidNumber()){
 					System.out.println("How many guests do you plan on having at your event?");

@@ -14,17 +14,17 @@ public class Event{
   private List<String> mPotentialCoupons = new ArrayList<String>();
   private List<Double> mPotentialCouponDiscounts = new ArrayList<Double>();
   private double mTotalPrice;
-  private String[] mValidFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish", "light snack"};
-  private Integer[] mFoodPrices = {12, 15, 25, 18, 26, 10};
-  private String[] mValidBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic Bar"};
-  private Integer[] mBeveragePrices = {40, 150, 100};
-  private String[] mValidEntertainment = {"DJ", "Live Band", "Photo Booth"};
-  private Integer[] mEntertainmentPrices = {400, 900, 700};
+  private String[] mValidFood = {"buffet-Vegetarian", "buffet-Meat", "plated-Meat", "plated-Vegetarian", "plated-Fish", "light snack", "none"};
+  private Integer[] mFoodPrices = {12, 15, 25, 18, 26, 10, 0};
+  private String[] mValidBeverage = {"Open Bar", "Pay Bar", "Non-alcoholic Bar", "none"};
+  private Integer[] mBeveragePrices = {40, 150, 100, 0};
+  private String[] mValidEntertainment = {"DJ", "Live Band", "Photo Booth", "none"};
+  private Integer[] mEntertainmentPrices = {400, 900, 700, 0};
 
   // Constructor and other event methods
   // _________________________________________________
   public Event(){
-
+    // Perry, I'm wondering whether parameters should be made available to the constructor on principle given getters and setters. What do you think?
   }
 
   public void generateRandomEvent(){
@@ -155,9 +155,13 @@ public class Event{
     mPotentialCoupons.add("WINTERWEDDING2017");
     mPotentialCoupons.add("BESTIESWITHEVENTPLANNER2017");
     mPotentialCoupons.add("BRIDEZILLA2017");
+    mPotentialCoupons.add("HAPPYBIRTHDAY2017");
+    mPotentialCoupons.add("LONGLOSTRELATIVES2017");
     mPotentialCouponDiscounts.add(0.85);
     mPotentialCouponDiscounts.add(0.5);
     mPotentialCouponDiscounts.add(0.65);
+    mPotentialCouponDiscounts.add(0.8);
+    mPotentialCouponDiscounts.add(0.55);
   }
 
   public boolean isValidCoupon(String coupon){

@@ -68,23 +68,25 @@ public class App{
 				}
 			}
 			if(usrSelection.equals("Create Custom Event")){
+				currentEvent = new Event();
+				currentEvent.initializeCoupons();
 				while(!currentEvent.isValidNumber()){
 					System.out.println("How many guests do you plan on having at your event?");
 					Integer usrGuests = Integer.parseInt(myConsole.readLine());
 					currentEvent.setNumGuests(usrGuests);
 				}
 				while(!currentEvent.isValidFood()){
-					System.out.println("What kind of food were you thinking? Please type: 'buffet-Vegetarian', 'buffet-Meat', 'plated-Meat', 'plated-Vegetarian', or 'plated-Fish'");
+					System.out.println("What kind of food were you thinking? Please type: 'buffet-Vegetarian', 'buffet-Meat', 'plated-Meat', 'plated-Vegetarian', or 'plated-Fish', 'none'");
 					String usrFood = myConsole.readLine();
 					currentEvent.setFood(usrFood);
 				}
 				while(!currentEvent.isValidBeverage()){
-					System.out.println("What kind of beverage were you thinking? Please type: 'Open Bar', 'Pay Bar', or 'Non-alcoholic' ");
+					System.out.println("What kind of beverage were you thinking? Please type: 'Open Bar', 'Pay Bar', or 'Non-alcoholic Bar', 'none' ");
 					String usrBeverage = myConsole.readLine();
 					currentEvent.setBeverage(usrBeverage);
 				}
 				while(!currentEvent.isValidEntertainment()){
-					System.out.println("What kind of entertainment were you thinking? Please type: 'DJ', 'Live Band', or 'Photo Booth'");
+					System.out.println("What kind of entertainment were you thinking? Please type: 'DJ', 'Live Band', or 'Photo Booth', 'none'");
 					String usrEntertainment = myConsole.readLine();
 					currentEvent.setEntertainment(usrEntertainment);
 				}
@@ -94,6 +96,7 @@ public class App{
 				if(currentEvent.isValidCoupon(usrCouponCode)){
 					System.out.println("Congratulations! Your coupon is valid!");
 					currentEvent.applyCoupon(usrCouponCode);
+					// currentEvent.calculateTotalEventPrice();
 				}
 				System.out.println(currentEvent.getEventDetailsString());
 				currentEvent = new Event();

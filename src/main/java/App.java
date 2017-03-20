@@ -18,9 +18,7 @@ public class App{
 				boolean specialtyTruthVal = true;
 				while(specialtyTruthVal == true){
 					if(usrSpecialtySelection.equals("Exit")){
-						// System.out.println("Got into exit section");
 						specialtyTruthVal = false;
-						// System.out.println("specialtyTruthVal is " + specialtyTruthVal);
 						System.out.println(promptStatement);
 						usrSelection = myConsole.readLine();
 					} else if(usrSpecialtySelection.equals("Wedding")){
@@ -100,10 +98,8 @@ public class App{
 				if(currentEvent.isValidCoupon(usrCouponCode)){
 					System.out.println("Congratulations! Your coupon is valid!");
 					currentEvent.applyCoupon(usrCouponCode);
-					// currentEvent.calculateTotalEventPrice();
 				}
 				System.out.println(currentEvent.getEventDetailsString());
-				// currentEvent = new Event();
 				System.out.println(promptStatement);
 				usrSelection = myConsole.readLine();
 			}

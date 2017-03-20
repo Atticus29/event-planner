@@ -1,0 +1,116 @@
+<!-- display.vtl -->
+#if ($option.equals("random"))
+$eventObj.generateRandomEvent()
+  <h1>Random Event</h1>
+  <p>
+    Your random event will have $eventObj.getNumGuests() guests, serve $eventObj.getFood() for food, $eventObj.getBeverage() for drink, and $eventObj.getEntertainment() for entertainment. That would cost <span class="total-price">$$eventObj.getTotalPrice()</span>.
+  </p>
+
+#end
+#if ($option.equals("custom"))
+  <h1>Custom Event</h1>
+  <form action="/total">
+    <div class="form-group">
+      <label for="guestnumber">Enter number of guests</label>
+      <input name="guestnumber" id="guestnumber" class="form-control" type="number">
+    </div>
+    <div class="form-group" id="food">
+      <div class="radio">
+        <label>
+          <input type="radio" name="customfood" value="buffet-Vegetarian">
+          Vegetarian buffet
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="customfood" value="buffet-Meat">
+          Meat buffet
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="customfood" value="plated-Meat">
+          Meat plates
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="customfood" value="plated-Vegetarian">
+          Veggie plates
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="customfood" value="plated-Fish">
+          Fishy plates
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="customfood" value="light snack">
+          Light snack
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="customfood" value="none">
+          none
+        </label>
+      </div>
+    </div>
+    <div class="form-group" id="beverage">
+      <div class="radio">
+        <label>
+          <input type="radio" name="custombeverage" value="Open Bar">
+          Open Bar
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="custombeverage" value="Pay Bar">
+          Pay Bar
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="custombeverage" value="Non-alcoholic Bar">
+          Non-alcoholic Bar
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="custombeverage" value="none">
+          None
+        </label>
+      </div>
+    </div>
+    <div class="form-group" id="entertainment">
+      <div class="radio">
+        <label>
+          <input type="radio" name="custom-entertainment" value="DJ">
+          DJ
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="custom-entertainment" value="Live Band">
+          Live Band
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="custom-entertainment" value="Photo Booth">
+          Photo Booth
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="custom-entertainment" value="none">
+          None
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-info">Reserve Event</button>
+  </form>
+#end
+<!-- display.vtl -->

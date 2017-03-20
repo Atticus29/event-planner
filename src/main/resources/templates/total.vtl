@@ -1,0 +1,12 @@
+<!-- random-event.vtl -->
+$eventObj.setNumGuests(Integer.parseInt($guestnumber))
+$eventObj.setFood($customfood)
+$eventObj.setFood($custombeverage)
+$eventObj.setFood($custom-entertainment)
+$eventObj.calculateTotalEventPrice()
+
+<h1>Random Event</h1>
+<p>
+  Your random event will have $guestnumber guests, serve $customfood for food, $beverage for drink, and $entertainment for entertainment. That would cost <span class="total-price">$$totalPrice</span>.
+</p>
+<!-- random-event.vtl -->

@@ -1,0 +1,25 @@
+<!--main-form.vtl-->
+<h1>Plan your event!</h1>
+<form action="/display" method="get">
+  <div class="radio">
+    <label>
+      <input type="radio" name="option" value="random" checked>
+      View Random Event
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="option" value="custom">
+      Create Custom Event
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="option" value="specialty">
+      View Specialty Packages
+    </label>
+  </div>
+  <button type="submit" class="btn">See the Events</button>
+</form>
+<a href = '/random-event'>Make random event</a>
+<!--main-form.vtl-->

@@ -16,23 +16,27 @@ public class App{
 				System.out.println(specialtyPrompt);
 				String usrSpecialtySelection = myConsole.readLine();
 				boolean specialtyTruthVal = true;
-				while(specialtyTruthVal){
+				while(specialtyTruthVal == true){
 					if(usrSpecialtySelection.equals("Exit")){
+						// System.out.println("Got into exit section");
 						specialtyTruthVal = false;
+						// System.out.println("specialtyTruthVal is " + specialtyTruthVal);
+						System.out.println(promptStatement);
+						usrSelection = myConsole.readLine();
 					} else if(usrSpecialtySelection.equals("Wedding")){
-							// Perry, I think I could DRY this out with a constructor, but not clear on usage of constructors in encapsulated setting...
-							Event weddingEvent = new Event();
-							weddingEvent.initializeCoupons();
-							weddingEvent.setNumGuests(75);
-							weddingEvent.setFood("plated-Meat");
-							weddingEvent.setBeverage("Open Bar");
-							weddingEvent.setEntertainment("DJ");
-							weddingEvent.calculateTotalEventPrice();
-							weddingEvent.applyCoupon("BRIDEZILLA2017");
-							System.out.println("Special discount for the wedding package");
-							System.out.println(weddingEvent.getEventDetailsString());
-							System.out.println(specialtyPrompt);
-							usrSpecialtySelection = myConsole.readLine();
+						// Perry, I think I could DRY this out with a constructor, but not clear on usage of constructors in encapsulated setting...
+						Event weddingEvent = new Event();
+						weddingEvent.initializeCoupons();
+						weddingEvent.setNumGuests(75);
+						weddingEvent.setFood("plated-Meat");
+						weddingEvent.setBeverage("Open Bar");
+						weddingEvent.setEntertainment("DJ");
+						weddingEvent.calculateTotalEventPrice();
+						weddingEvent.applyCoupon("BRIDEZILLA2017");
+						System.out.println("Special discount for the wedding package");
+						System.out.println(weddingEvent.getEventDetailsString());
+						System.out.println(specialtyPrompt);
+						usrSpecialtySelection = myConsole.readLine();
 					} else if(usrSpecialtySelection.equals("Birthday")){
 						Event birthdayEvent = new Event();
 						birthdayEvent.initializeCoupons();
@@ -67,7 +71,7 @@ public class App{
 					}
 				}
 			}
-			if(usrSelection.equals("Create Custom Event")){
+			else if(usrSelection.equals("Create Custom Event")){
 				currentEvent = new Event();
 				currentEvent.initializeCoupons();
 				while(!currentEvent.isValidNumber()){
@@ -99,11 +103,11 @@ public class App{
 					// currentEvent.calculateTotalEventPrice();
 				}
 				System.out.println(currentEvent.getEventDetailsString());
-				currentEvent = new Event();
+				// currentEvent = new Event();
 				System.out.println(promptStatement);
 				usrSelection = myConsole.readLine();
 			}
-			if(usrSelection.equals("View Random Event")){
+			else if(usrSelection.equals("View Random Event")){
 				Event randomEvent = new Event();
 				randomEvent.initializeCoupons();
 				randomEvent.generateRandomEvent();
@@ -111,12 +115,11 @@ public class App{
 				System.out.println(promptStatement);
 				usrSelection = myConsole.readLine();
 			}
-			if(!usrSelection.equals("View Random Event") && !usrSelection.equals("Create Custom Event")){
+			else if(usrSelection.equals("Exit")){
+				truthVal = false;
+			} else{
 				System.out.println(promptStatement);
 				usrSelection = myConsole.readLine();
-			}
-			if(usrSelection.equals("Exit")){
-				truthVal = false;
 			}
 		}
 	}
